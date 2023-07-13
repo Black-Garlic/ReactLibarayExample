@@ -16,6 +16,7 @@ const Sidebar = () => {
         { label: "Home", url: "/" },
         { label: "React PDF", url: "/react-pdf" },
         { label: "React File Viewer", url: "/react-file-viewer" },
+        { label: "React Image Crop", url: "/react-image-crop" },
       ] as MenuOption[],
     [],
   );
