@@ -13,8 +13,8 @@ const Sidebar = () => {
   const menuList = useMemo(
     () =>
       [
-        { label: "메뉴", url: "/44" },
-        { label: "메뉴 1", url: "/menu" },
+        { label: "Home", url: "/" },
+        { label: "React PDF", url: "/react-pdf" },
       ] as MenuOption[],
     [],
   );
