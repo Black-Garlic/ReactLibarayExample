@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { centerCrop, makeAspectCrop, Crop, PixelCrop } from "react-image-crop";
-import MainTemplate from "../common/MainTemplate";
+import MainTemplate from "../../common/MainTemplate";
 import "react-image-crop/dist/ReactCrop.css";
 import ReactImageCropButton from "./ReactImageCropButton";
 import ReactImageCropArea from "./ReactImageCropArea";

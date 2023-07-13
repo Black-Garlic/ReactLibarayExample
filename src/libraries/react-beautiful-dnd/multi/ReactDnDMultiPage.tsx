@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { ReactBeautifulDnDItem } from "../ReactBeautifulDnDTypes";
-import MainTemplate from "../../common/MainTemplate";
+import MainTemplate from "../../../common/MainTemplate";
 import ReactDnDMultiVerticalArea from "./ReactDnDMultiVerticalArea";
 import ReactDnDMultiHorizonArea from "./ReactDnDMultiHorizonArea";
 import ReactDndButton from "../ReactDndButton";

@@ -1,7 +1,7 @@
 import { useState } from "react";
 // @ts-ignore
 import FileViewer from "react-file-viewer";
-import MainTemplate from "../common/MainTemplate";
+import MainTemplate from "../../common/MainTemplate";
 
 const ReactFileViewerPage = () => {
   const [fileUrl, setFileUrl] = useState(

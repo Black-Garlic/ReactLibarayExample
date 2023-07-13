@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MainTemplate from "../common/MainTemplate";
+import MainTemplate from "../../common/MainTemplate";
 import ReactPDFButton from "./ReactPDFButton";
 import ReactPDFRender from "./ReactPDFRender";
 
