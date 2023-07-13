@@ -7,6 +7,7 @@ const { Sider } = Layout;
 interface MenuOption {
   label: string;
   url: string;
+  children?: MenuOption[];
 }
 
 const Sidebar = () => {
@@ -17,15 +18,38 @@ const Sidebar = () => {
         { label: "React PDF", url: "/react-pdf" },
         { label: "React File Viewer", url: "/react-file-viewer" },
         { label: "React Image Crop", url: "/react-image-crop" },
+        {
+          label: "React Beautiful DnD",
+          url: "/react-beautiful-dnd",
+          children: [
+            { label: "Single - vertical", url: "/single-vertical" },
+            { label: "Single - horizon", url: "/single-horizon" },
+            { label: "Multi - vertical", url: "/multi-vertical" },
+            { label: "Multi - horizon", url: "/multi-horizon" },
+          ],
+        },
       ] as MenuOption[],
     [],
   );
 
   const generateMenuList = useCallback(() => {
-    return menuList.map((menu, index) => ({
-      key: menu.label + "-" + index,
-      label: <Link to={menu.url}>{menu.label}</Link>,
-    }));
+    return menuList.map((menu, index) => {
+      if (menu.children) {
+        return {
+          key: menu.label + "-" + index,
+          label: menu.label,
+          children: menu.children.map((childMenu) => ({
+            key: childMenu.label + "-" + index,
+            label: <Link to={menu.url + childMenu.url}>{childMenu.label}</Link>,
+          })),
+        };
+      } else {
+        return {
+          key: menu.label + "-" + index,
+          label: <Link to={menu.url}>{menu.label}</Link>,
+        };
+      }
+    });
   }, [menuList]);
 
   return (
