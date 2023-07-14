@@ -14,7 +14,7 @@ const MainTemplate = ({ children }: { children: ReactNode }) => {
       <Layout>
         <Header />
 
-        <Content style={{ margin: "24px 16px 0" }}>
+        <Content style={{ margin: "24px 16px 0", minHeight: "816px" }}>
           <div style={{ padding: 24, minHeight: 360 }}>{children}</div>
         </Content>
 
