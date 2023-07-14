@@ -51,7 +51,46 @@ const TipTapEditorPage = () => {
       TextStyle,
       Color,
     ],
-    // content: value,
+    content: `
+      <strong>Hi there</strong><br/>
+      <em>Hi there</em><br/>
+      <s>Hi there</s><br/>
+      <code class="language-css">body {display: none;}</code>
+      <p>Hi there</p>
+      <h1>
+        Hi there
+      </h1>
+      <h2>
+        Hi there
+      </h2>
+      <h3>
+        Hi there
+      </h3>
+      <h4>
+        Hi there
+      </h4>
+      <h5>
+        Hi there
+      </h5>
+      <h6>
+        Hi there
+      </h6>
+      <ul>
+        <li>
+        Hi there
+        </li>
+      </ul>
+      <ol>
+        <li>
+        Hi there
+        </li>
+      </ol>
+      <pre><code class="language-css">body {display: none;}</code></pre>
+      <blockquote>
+        Hi there
+      </blockquote>
+     <hr contenteditable="false"/>
+    `,
   });
 
   // useEffect(() => {
@@ -73,8 +112,10 @@ const TipTapEditorPage = () => {
       <div className={"inputAreaClass"}>
         <TipTabEditorToolBar editor={editor} />
 
+        <EditorContent editor={editor} maxLength={2000} />
+
         <EditorStyle>
-          <EditorContent editor={editor} maxLength={2000} />
+          <div dangerouslySetInnerHTML={{ __html: editor?.getHTML() || "" }} />
         </EditorStyle>
 
         <div className="count-txt">

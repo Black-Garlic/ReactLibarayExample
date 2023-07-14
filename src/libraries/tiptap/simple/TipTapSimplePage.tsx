@@ -47,7 +47,6 @@ const TipTapSimplePage = () => {
         Hi there
       </blockquote>
      <hr contenteditable="false"/>
-      
     `,
   });
 
@@ -121,16 +120,18 @@ const TipTapSimplePage = () => {
         </BubbleMenu>
       )}
 
+      <EditorContent
+        editor={editor}
+        style={{
+          margin: 20,
+          padding: 20,
+          border: "1px solid #000",
+          outline: "none",
+        }}
+      />
+
       <EditorStyle>
-        <EditorContent
-          editor={editor}
-          style={{
-            margin: 20,
-            padding: 20,
-            border: "1px solid #000",
-            outline: "none",
-          }}
-        />
+        <div dangerouslySetInnerHTML={{ __html: editor?.getHTML() || "" }} />
       </EditorStyle>
     </MainTemplate>
   );
