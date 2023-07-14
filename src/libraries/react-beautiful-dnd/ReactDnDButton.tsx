@@ -9,7 +9,7 @@ interface ReactDndButtonProps {
   addGroup?: any;
 }
 
-const ReactDndButton = ({
+const ReactDnDButton = ({
   setItemList,
   addItem,
   initializeItemList,
@@ -33,4 +33,4 @@ const ReactDndButton = ({
   );
 };
 
-export default ReactDndButton;
+export default ReactDnDButton;

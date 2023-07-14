@@ -1,10 +1,10 @@
 import { Draggable } from "react-beautiful-dnd";
 import React from "react";
-import { ReactBeautifulDnDItem } from "../ReactBeautifulDnDTypes";
+import { ReactDnDItem } from "../ReactDnDTypes";
 
 interface ReactDnDMultiItemProps {
   areaIndex: number;
-  item: ReactBeautifulDnDItem;
+  item: ReactDnDItem;
   index: number;
   setNewItemLists: any;
   getItemStyle: any;

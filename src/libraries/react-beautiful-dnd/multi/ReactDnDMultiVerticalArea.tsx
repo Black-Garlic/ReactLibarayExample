@@ -4,13 +4,13 @@ import {
   NotDraggingStyle,
 } from "react-beautiful-dnd";
 import React, { useCallback } from "react";
-import { ReactBeautifulDnDItem } from "../ReactBeautifulDnDTypes";
+import { ReactDnDItem } from "../ReactDnDTypes";
 import ReactDnDMultiItem from "./ReactDnDMultiItem";
 
 const GRID = 8;
 
 interface ReactDnDMultiVerticalAreaProps {
-  areaItemList: ReactBeautifulDnDItem[];
+  areaItemList: ReactDnDItem[];
   areaIndex: number;
   setNewItemLists: any;
 }

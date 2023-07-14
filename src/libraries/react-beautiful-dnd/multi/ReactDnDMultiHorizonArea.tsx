@@ -5,12 +5,12 @@ import {
   NotDraggingStyle,
 } from "react-beautiful-dnd";
 import ReactDnDMultiItem from "./ReactDnDMultiItem";
-import { ReactBeautifulDnDItem } from "../ReactBeautifulDnDTypes";
+import { ReactDnDItem } from "../ReactDnDTypes";
 
 const GRID = 8;
 
 interface ReactDnDMultiHorizonAreaProps {
-  areaItemList: ReactBeautifulDnDItem[];
+  areaItemList: ReactDnDItem[];
   areaIndex: number;
   setNewItemLists: any;
 }

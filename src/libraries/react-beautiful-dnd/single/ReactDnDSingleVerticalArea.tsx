@@ -5,12 +5,12 @@ import {
   NotDraggingStyle,
 } from "react-beautiful-dnd";
 import React, { useCallback } from "react";
-import { ReactBeautifulDnDItem } from "../ReactBeautifulDnDTypes";
+import { ReactDnDItem } from "../ReactDnDTypes";
 
 const GRID = 8;
 
 interface ReactDnDSingleVerticalAreaProps {
-  itemList: ReactBeautifulDnDItem[];
+  itemList: ReactDnDItem[];
 }
 
 const ReactDnDSingleVerticalArea = ({

@@ -1,4 +1,4 @@
-import { ReactBeautifulDnDItem } from "../ReactBeautifulDnDTypes";
+import { ReactDnDItem } from "../ReactDnDTypes";
 import ReactDnDSingleItem from "./ReactDnDSingleItem";
 import {
   DraggingStyle,
@@ -10,7 +10,7 @@ import React, { useCallback } from "react";
 const GRID = 8;
 
 interface ReactDnDSingleHorizonAreaProps {
-  itemList: ReactBeautifulDnDItem[];
+  itemList: ReactDnDItem[];
 }
 
 const ReactDnDSingleHorizonArea = ({

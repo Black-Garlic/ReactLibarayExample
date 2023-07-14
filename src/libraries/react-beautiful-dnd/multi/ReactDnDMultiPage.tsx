@@ -1,13 +1,13 @@
 import React, { useCallback, useState } from "react";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
-import { ReactBeautifulDnDItem } from "../ReactBeautifulDnDTypes";
+import { ReactDnDItem } from "../ReactDnDTypes";
 import MainTemplate from "../../../common/MainTemplate";
 import ReactDnDMultiVerticalArea from "./ReactDnDMultiVerticalArea";
 import ReactDnDMultiHorizonArea from "./ReactDnDMultiHorizonArea";
-import ReactDndButton from "../ReactDndButton";
+import ReactDnDButton from "../ReactDnDButton";
 
 // fake data generator
-const getItems = (index: number, offset = 0): ReactBeautifulDnDItem => {
+const getItems = (index: number, offset = 0): ReactDnDItem => {
   return {
     id: `item-${index + offset}-${new Date().getTime()}`,
     content: `item ${index + offset}`,
@@ -70,7 +70,7 @@ const ReactDnDMultiPage = () => {
   );
 
   const reorder = (
-    list: ReactBeautifulDnDItem[],
+    list: ReactDnDItem[],
     startIndex: number,
     endIndex: number,
   ) => {
@@ -85,8 +85,8 @@ const ReactDnDMultiPage = () => {
    * Moves an item from one list to another list.
    */
   const move = (
-    source: ReactBeautifulDnDItem[],
-    destination: ReactBeautifulDnDItem[],
+    source: ReactDnDItem[],
+    destination: ReactDnDItem[],
     droppableSource: any,
     droppableDestination: any,
   ) => {
@@ -114,7 +114,7 @@ const ReactDnDMultiPage = () => {
 
   return (
     <MainTemplate>
-      <ReactDndButton
+      <ReactDnDButton
         setItemList={setItemList}
         addItem={addItem}
         initializeItemList={initializeItemList}

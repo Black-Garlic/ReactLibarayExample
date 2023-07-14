@@ -1,9 +1,9 @@
 import { Draggable } from "react-beautiful-dnd";
 import React from "react";
-import { ReactBeautifulDnDItem } from "../ReactBeautifulDnDTypes";
+import { ReactDnDItem } from "../ReactDnDTypes";
 
 interface ReactDnDSingleItemProps {
-  item: ReactBeautifulDnDItem;
+  item: ReactDnDItem;
   index: number;
   getItemStyle: any;
 }
