@@ -1,0 +1,88 @@
+import React from "react";
+import { EditorContent, useEditor } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
+import Image from "@tiptap/extension-image";
+import Placeholder from "@tiptap/extension-placeholder";
+import Link from "@tiptap/extension-link";
+import CharacterCount from "@tiptap/extension-character-count";
+import Underline from "@tiptap/extension-underline";
+import TextAlign from "@tiptap/extension-text-align";
+import Subscript from "@tiptap/extension-subscript";
+import Superscript from "@tiptap/extension-superscript";
+import Table from "@tiptap/extension-table";
+import TableCell from "@tiptap/extension-table-cell";
+import TableHeader from "@tiptap/extension-table-header";
+import TableRow from "@tiptap/extension-table-row";
+import { Color } from "@tiptap/extension-color";
+import TextStyle from "@tiptap/extension-text-style";
+import TipTabEditorToolBar from "./TipTabEditorToolBar";
+import { EditorStyle } from "../TipTapStyle";
+import MainTemplate from "../../../common/MainTemplate";
+import "./assets/editor.css";
+
+const TipTapEditorPage = () => {
+  const editor = useEditor({
+    extensions: [
+      StarterKit,
+      Image.configure({
+        HTMLAttributes: {
+          style: "width: 100%",
+        },
+      }),
+      Placeholder.configure({
+        placeholder: "TipTap Editor",
+      }),
+      Link,
+      CharacterCount.configure({
+        limit: 2000,
+      }),
+      Underline,
+      TextAlign.configure({
+        types: ["heading", "paragraph"],
+      }),
+      Subscript,
+      Superscript,
+      Table.configure({
+        resizable: true,
+      }),
+      TableRow,
+      TableHeader,
+      TableCell,
+      TextStyle,
+      Color,
+    ],
+    // content: value,
+  });
+
+  // useEffect(() => {
+  //   if (editor) {
+  //     editor.on("update", ({ editor }) => {
+  //       methods.setValue(register.name, editor.getHTML(), {
+  //         shouldDirty: true,
+  //       });
+  //       if (handleScroll) {
+  //         handleScroll(editor.getText());
+  //       }
+  //     });
+  //     setEditor(editor);
+  //   }
+  // }, [editor, handleScroll, methods, register.name, setEditor]);
+
+  return (
+    <MainTemplate>
+      <div className={"inputAreaClass"}>
+        <TipTabEditorToolBar editor={editor} />
+
+        <EditorStyle>
+          <EditorContent editor={editor} maxLength={2000} />
+        </EditorStyle>
+
+        <div className="count-txt">
+          <div>{editor?.storage.characterCount.characters() ?? 0}/2000 자</div>
+        </div>
+      </div>
+    </MainTemplate>
+  );
+};
+
+export default TipTapEditorPage;

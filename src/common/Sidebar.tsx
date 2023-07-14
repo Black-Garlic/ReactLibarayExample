@@ -28,6 +28,14 @@ const Sidebar = () => {
             { label: "Multi - horizon", url: "/multi-horizon" },
           ],
         },
+        {
+          label: "TipTap Editor",
+          url: "/tiptap",
+          children: [
+            { label: "Simple", url: "/simple" },
+            { label: "Editor", url: "/editor" },
+          ],
+        },
       ] as MenuOption[],
     [],
   );

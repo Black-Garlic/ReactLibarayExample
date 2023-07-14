@@ -1,0 +1,650 @@
+.ProseMirror {
+    border-radius: 0 0 4px 4px;
+    width: 100%;
+    min-height: 203px;
+    padding: 10px 16px 10px;
+    overflow-y: auto;
+    background-color: #f8f9f8;
+    border: 1px solid #d6dbe4;
+    color: #222;
+    font-size: 14px;
+    line-height: 1.43;
+}
+.ProseMirror > * + * {
+    margin-top: 0.75em;
+}
+.ProseMirror em {
+    font-style: italic;
+}
+.ProseMirror code {
+    background-color: rgba(97, 97, 97, 0.1);
+    color: #616161;
+}
+.ProseMirror h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.ProseMirror h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.ProseMirror h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.ProseMirror h4 {
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.ProseMirror h5 {
+    display: block;
+    font-size: 0.83em;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.ProseMirror h6 {
+    display: block;
+    font-size: 0.67em;
+    margin-block-start: 2.33em;
+    margin-block-end: 2.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.ProseMirror ul,
+.ProseMirror ol {
+    padding: 0 1rem;
+}
+.ProseMirror ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 20px;
+}
+.ProseMirror ol {
+    display: block;
+    list-style-type: decimal;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 20px;
+}
+.ProseMirror pre {
+    background-color: #f0f4fb;
+    padding: 16px;
+    border: solid 1px #e0e7f2;
+    margin: 16px 0;
+    border-radius: 4px;
+}
+.ProseMirror pre code {
+    color: inherit;
+    padding: 0;
+    background: none;
+    font-size: 0.8rem;
+}
+.ProseMirror img {
+    max-width: 100%;
+    height: auto;
+}
+.ProseMirror blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid rgba(13, 13, 13, 0.1);
+    margin: 12px 40px;
+}
+.ProseMirror hr {
+    border: none;
+    border-top: 2px solid rgba(13, 13, 13, 0.1);
+    margin: 2rem 0;
+}
+.ProseMirror a {
+    color: #366cd9;
+    text-decoration: none;
+}
+.ProseMirror u {
+    text-decoration: underline;
+}
+
+/* toolbar-edit */
+.toolbar-edit button:hover {
+    background-color: rgba(25, 75, 220, 0.02);
+}
+/* // Animation */
+@keyframes dropdownMotion {
+    0% {
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+.btn-set .option-box {
+    position: relative;
+    padding-left: 10px;
+}
+.btn-set .option-box .txt {
+    position: relative;
+    margin-right: 4px;
+}
+.btn-set .option-box .txt .txt-h {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 30px;
+    height: 24px;
+    border: 0px;
+    background: white;
+}
+.btn-set .option-box .txt .txt-h:after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 8px;
+    height: 6px;
+    top: 50%;
+    right: 0;
+    margin: -3px;
+    background: url(./icon-arrow-option.svg) no-repeat 0 0;
+}
+.btn-set .option-box .txt-h [class^="type-"] {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    color: #222;
+    text-transform: uppercase;
+}
+.btn-set .option-box .txt-h {
+    cursor: pointer;
+}
+.btn-set .option-box[aria-expanded="true"] .layer-option-list {
+    display: block;
+    animation: dropdownMotion 0.3s ease;
+    animation-fill-mode: forwards;
+}
+.btn-set .option-box .layer-option-list {
+    display: none;
+    position: absolute;
+    left: -1px;
+    top: 44px;
+    width: 56px;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(10px);
+}
+.btn-set .option-box .layer-option-list .list-area {
+    padding: 8px 0;
+    background-color: #fff;
+    width: 56px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05);
+}
+.btn-set .option-box .layer-option-list .list-area .txt-h {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    padding: 9px 0;
+    cursor: pointer;
+    border: 0px;
+    background: white;
+}
+.btn-set .option-box .layer-option-list .list-area .txt-h:hover {
+    background-color: rgba(25, 75, 220, 0.05);
+}
+.toolbar-edit button:hover {
+    background-color: rgba(25, 75, 220, 0.02);
+}
+
+.toolbar-edit {
+    border: 1px solid #D6DBE4;
+    border-bottom: none;
+    background: white;
+}
+.btn-set {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 7px 0 7px 0;
+}
+.btn-set .set-group {
+    display: flex;
+    flex-flow: row nowrap;
+    border-left: 1px solid rgba(1, 9, 43, 0.3);
+    margin-left: 13px;
+}
+.btn-set .option-box + .set-group {
+    margin-left: 10px;
+}
+.btn-set .set-group button {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    color: transparent;
+    font-size: 0;
+    margin-left: 13px;
+    cursor: pointer;
+    border: 0px;
+}
+.btn-set button[class^="txt-"] {
+    color: transparent;
+    font-size: 0;
+}
+.btn-set .set-group button[class^="type-"],
+.btn-set .set-group button[class^="txt-"],
+.btn-set .set-group button[class^="list-"] {
+    background-image: url(./sprite-img-toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -67px -7px;
+    cursor: pointer;
+}
+.btn-set .set-group button[class^="type-"].is-active,
+.btn-set .set-group button[class^="txt-"].is-active,
+.btn-set .set-group button[class^="list-"].is-active {
+    background-image: url(./sprite-img-toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -67px -47px;
+}
+.btn-set .set-group button.txt-al-left:hover {
+    background-position: -67px -47px;
+}
+.btn-set .set-group button.txt-al-center {
+    background-position: -104px -7px;
+}
+.btn-set .set-group button.txt-al-center:hover,
+.btn-set .set-group button.txt-al-center.is-active {
+    background-position: -104px -47px;
+}
+
+.btn-set .set-group button.txt-al-right {
+    background-position: -141px -7px;
+}
+.btn-set .set-group button.txt-al-right:hover,
+.btn-set .set-group button.txt-al-right.is-active {
+    background-position: -141px -47px;
+}
+
+.btn-set .set-group button.txt-deco-b {
+    background-position: -191px -7px;
+}
+.btn-set .set-group button.txt-deco-b:hover,
+.btn-set .set-group button.txt-deco-b.is-active {
+    background-position: -191px -47px;
+}
+
+.btn-set .set-group button.txt-deco-i {
+    background-position: -228px -7px;
+}
+.btn-set .set-group button.txt-deco-i:hover,
+.btn-set .set-group button.txt-deco-i.is-active {
+    background-position: -228px -47px;
+}
+
+.btn-set .set-group button.txt-deco-u {
+    background-position: -265px -7px;
+}
+.btn-set .set-group button.txt-deco-u:hover,
+.btn-set .set-group button.txt-deco-u.is-active {
+    background-position: -265px -47px;
+}
+
+.btn-set .set-group button.txt-deco-lh {
+    background-position: -302px -7px;
+}
+.btn-set .set-group button.txt-deco-lh:hover,
+.btn-set .set-group button.txt-deco-lh.is-active {
+    background-position: -302px -47px;
+}
+
+.btn-set .set-group button.txt-paragraph {
+    background-position: -352px -7px;
+}
+.btn-set .set-group button.txt-paragraph:hover,
+.btn-set .set-group button.txt-paragraph.is-active {
+    background-position: -352px -47px;
+}
+
+.btn-set .set-group button.txt-hanging-out {
+    background-position: -389px -7px;
+}
+.btn-set .set-group button.txt-hanging-out:hover,
+.btn-set .set-group button.txt-hanging-out.is-active {
+    background-position: -389px -47px;
+}
+
+.btn-set .set-group button.txt-break {
+    background-position: -426px -7px;
+}
+.btn-set .set-group button.txt-break:hover,
+.btn-set .set-group button.txt-break.is-active {
+    background-position: -426px -47px;
+}
+
+.btn-set .set-group button.txt-horizontal-rule {
+    background-position: -463px -7px;
+}
+.btn-set .set-group button.txt-horizontal-rule:hover,
+.btn-set .set-group button.txt-horizontal-rule.is-active {
+    background-position: -463px -47px;
+}
+
+.btn-set .set-group button.list-bullet {
+    background-position: -513px -7px;
+}
+.btn-set .set-group button.list-bullet:hover,
+.btn-set .set-group button.list-bullet.is-active {
+    background-position: -513px -47px;
+}
+
+.btn-set .set-group button.list-ordered {
+    background-position: -550px -7px;
+}
+.btn-set .set-group button.list-ordered:hover,
+.btn-set .set-group button.list-ordered.is-active {
+    background-position: -550px -47px;
+}
+
+.btn-set .set-group button.txt-link {
+    background-position: -601px -7px;
+}
+.btn-set .set-group button.txt-link:hover,
+.btn-set .set-group button.txt-link.is-active {
+    background-position: -601px -47px;
+}
+
+.btn-set .set-group button.txt-tag {
+    background-position: -636px -7px;
+}
+.btn-set .set-group button.txt-tag:hover,
+.btn-set .set-group button.txt-tag.is-active {
+    background-position: -636px -47px;
+}
+
+.btn-set .set-group button.type-subscript {
+    background-position: -725px -7px;
+}
+.btn-set .set-group button.type-subscript:hover,
+.btn-set .set-group button.type-subscript.is-active {
+    background-position: -725px -47px;
+}
+
+.btn-set .set-group button.type-superscript {
+    background-position: -762px -7px;
+}
+.btn-set .set-group button.type-superscript:hover,
+.btn-set .set-group button.type-superscript.is-active {
+    background-position: -762px -47px;
+}
+
+.btn-set .set-group button.type-undo {
+    background-position: -812px -7px;
+}
+.btn-set .set-group button.type-undo:hover,
+.btn-set .set-group button.type-undo.is-active {
+    background-position: -812px -47px;
+}
+
+.btn-set .set-group button.type-redo {
+    background-position: -849px -7px;
+}
+.btn-set .set-group button.type-redo:hover,
+.btn-set .set-group button.type-redo.is-active {
+    background-position: -849px -47px;
+}
+.btn-set.type-table-cell {
+    border-top: 1px solid #D6DBE4;
+}
+.btn-set.type-table-cell button {
+    background-image: url(./sprite-img-toolbar2.png) !important;
+    background-position: -66px -7px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.btn-set.type-table-cell button.txt-table {
+    background-position: -10px -7px;
+    width: 32px;
+    height: 24px;
+    border: 0px;
+}
+.btn-set.type-table-cell .option-box + .set-group {
+    margin-left: 8px;
+}
+.btn-set.type-table-cell .set-group button.type-row-top {
+    background-position: -66px -7px;
+}
+.btn-set.type-table-cell .set-group button.type-row-top:hover,
+.btn-set.type-table-cell .set-group button.type-row-top.is-active {
+    background-position: -66px -47px;
+}
+.btn-set.type-table-cell .set-group button.type-row-bottom {
+    background-position: -102px -7px;
+}
+.btn-set.type-table-cell .set-group button.type-row-bottom:hover,
+.btn-set.type-table-cell .set-group button.type-row-bottom.is-active {
+    background-position: -102px -47px;
+}
+.btn-set.type-table-cell .set-group button.type-row-del {
+    background-position: -139px -7px;
+}
+.btn-set.type-table-cell .set-group button.type-row-del:hover,
+.btn-set.type-table-cell .set-group button.type-row-del.is-active {
+    background-position: -139px -47px;
+}
+.btn-set.type-table-cell .set-group button.type-col-left {
+    background-position: -191px -7px;
+}
+.btn-set.type-table-cell .set-group button.type-col-left:hover,
+.btn-set.type-table-cell .set-group button.type-col-left.is-active {
+    background-position: -191px -47px;
+}
+.btn-set.type-table-cell .set-group button.type-col-right {
+    background-position: -225px -7px;
+}
+.btn-set.type-table-cell .set-group button.type-col-right:hover,
+.btn-set.type-table-cell .set-group button.type-col-right.is-active {
+    background-position: -225px -47px;
+}
+.btn-set.type-table-cell .set-group button.type-col-del {
+    background-position: -261px -7px;
+}
+.btn-set.type-table-cell .set-group button.type-col-del:hover,
+.btn-set.type-table-cell .set-group button.type-col-del.is-active {
+    background-position: -261px -47px;
+}
+.btn-set.type-table-cell .set-group button.type-cell-merge {
+    background-position: -313px -7px;
+}
+.btn-set.type-table-cell .set-group button.type-cell-merge:hover,
+.btn-set.type-table-cell .set-group button.type-cell-merge.is-active {
+    background-position: -313px -47px;
+}
+.btn-set.type-table-cell .set-group button.type-cell-unmerge {
+    background-position: -350px -7px;
+}
+.btn-set.type-table-cell .set-group button.type-cell-unmerge:hover,
+.btn-set.type-table-cell .set-group button.type-cell-unmerge.is-active {
+    background-position: -350px -47px;
+}
+.btn-set.type-table-cell .set-group button.type-table-del {
+    background-position: -388px -7px;
+}
+.btn-set.type-table-cell .set-group button.type-table-del:hover,
+.btn-set.type-table-cell .set-group button.type-table-del.is-active {
+    background-position: -388px -47px;
+}
+.btn-set.type-table-cell .set-group button.type-head-row {
+    background-position: -438px -7px;
+}
+.btn-set.type-table-cell .set-group button.type-head-row:hover,
+.btn-set.type-table-cell .set-group button.type-head-row.is-active {
+    background-position: -438px -47px;
+}
+.btn-set.type-table-cell .set-group button.type-head-col {
+    background-position: -475px -7px;
+}
+.btn-set.type-table-cell .set-group button.type-head-col:hover,
+.btn-set.type-table-cell .set-group button.type-head-col.is-active {
+    background-position: -475px -47px;
+}
+.set-group .option-box.type-color {
+    padding-left: 0;
+    display: flex;
+}
+.set-group .option-box.type-color .txt {
+    margin-right: 0;
+}
+.set-group .option-box.type-color .txt button.txt-color {
+    background: none !important;
+    font-weight: 900;
+    font-size: 19px;
+}
+.set-group .option-box.type-color .txt button.txt-color span {
+    color: #01092B;
+    font-weight: 900;
+    font-size: 19px;
+    text-decoration: underline;
+}
+.set-group .option-box.type-color .txt button.txt-color:after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 8px;
+    height: 6px;
+    top: 50%;
+    right: 0;
+    margin: -3px;
+    background: url(./icon-arrow-option.svg) no-repeat 0 0;
+}
+.btn-set .set-group .option-box.type-color .layer-option-list {
+    top: 32px;
+    left: 4px;
+    width: 168px;
+}
+.btn-set .set-group .option-box.type-color .layer-option-list li button {
+    background-image: none !important;
+}
+.btn-set .set-group .option-box.type-color .layer-option-list .list-area {
+    padding: 8px;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 3px;
+    width: 168px;
+    min-height: 110px;
+    border-radius: 2px;
+}
+.option-box.type-color .layer-option-list .list-area li {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+.option-box.type-color .layer-option-list .list-area li .color-box {
+    padding: 0; margin: 0;
+    width: auto; height: auto;
+    width: 16px;
+    height: 16px;
+}
+.option-box.type-color .layer-option-list .list-area li .color-box span {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border: 1px solid #DDDDDD;
+    border-radius: 1px;
+}
+.btn-set .option-box.type-cell .layer-option-list .list-area {
+    padding: 16px 0 0 16px;
+    /* min-width: 116px; */
+}
+.btn-set .option-box.type-cell .layer-option-list .list-area.type-large {
+    padding: 8px 0 0 8px;
+    /* min-width: 116px; */
+}
+.btn-set .option-box.type-cell .layer-option-list .list-area.type-large .space-box {
+    width: 8px !important;
+}
+.option-box.type-cell .cell-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.option-box.type-cell .cell-num span {
+    color: #01092B;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 22px;
+    margin-top: 5px;
+    flex: 1;
+}
+.option-box.type-cell .cell-num .space-box {
+    width: 16px;
+    flex-shrink: 0;
+}
+.option-box.type-cell .cell-list {
+    display: flex;
+    flex-flow: row nowrap;
+}
+.option-box.type-cell .cell-list .space-box {
+    width: 16px;
+    height: inherit;
+    flex-shrink: 0;
+}
+.option-box.type-cell .cell-list .item-box {
+    width: 20px;
+    height: 15px;
+    border-bottom: 1px solid #DFE1E5;
+    border-right: 1px solid #DFE1E5;
+}
+.option-box.type-cell .cell-list tr:first-child .item-box {
+    border-top: 1px solid #DFE1E5;
+}
+.option-box.type-cell .cell-list tr .item-box:first-child {
+    border-left: 1px solid #DFE1E5;
+}
+.option-box.type-cell .cell-list .item-box:hover,
+.option-box.type-cell .cell-list .item-box.is-active {
+    background-color: #E8F3FE;
+}
+
+.count-txt {
+    text-align: right;
+    color: #9A9B9C;
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+.lnb-menu .menu-cont .menu > li > ul > li > a .icon-svg.icon-search {
+    background:url(./icon-search-lnb.svg) no-repeat 0 0;
+}
+.lnb-menu .menu-cont .menu > li > ul > li > a .icon-svg.icon-key {
+    background:url(./icon-key.svg) no-repeat 0 0;
+}
+
+ul {
+    list-style: none;
+}
